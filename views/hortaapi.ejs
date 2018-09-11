@@ -1,0 +1,24 @@
+<html>
+<head>
+	<!-- CSS AND JQUERY FILES -->
+	<link rel="stylesheet" href="/assets/bootstrap-3.3-1.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/css/style_register.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title> Horta Hidroponica!</title>
+</head>
+<body>
+   <p><%=JSON.stringify(json) %></p>
+</body>
+<script>
+$(document).ready(function(){
+    var json = $("p").text();
+    $.ajax({
+        url: 'http://localhost:3000/arduinoapi',
+        type: 'POST',
+        contentType:'application/json',
+        data: JSON.stringify(json),
+        dataType:'json'
+    });
+});
+</script>
+</html>
